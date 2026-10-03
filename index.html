@@ -23,6 +23,14 @@
       <span>PLAY VERSE</span>
     </div>
 
+    <!-- RELÓGIO -->
+    <div class="clock" id="clock" title="Horário atual">
+      <svg viewBox="0 0 24 24" width="16" height="16">
+        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+      </svg>
+      <span id="clock-time">--:--:--</span>
+    </div>
+
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Tema">
       <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22">
         <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
@@ -58,6 +66,14 @@
         <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
         <span>Regras</span>
       </li>
+      <li data-page="contribuidores" onclick="showPage('contribuidores', this)">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <span>Contribuidores</span>
+      </li>
+      <li data-page="misterio" onclick="showPage('misterio', this)">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+        <span>???</span>
+      </li>
     </ul>
 
     <div class="sidebar-footer">
@@ -70,6 +86,7 @@
 
   <main class="content">
 
+    <!-- HOME -->
     <section class="page active" id="home">
       <div class="hero">
         <div class="hero-logo">
@@ -79,7 +96,7 @@
         </div>
         <h1>PLAY VERSE</h1>
         <p>Uma comunidade focada em <strong>jogos</strong>, <strong>eventos</strong> e <strong>diversão</strong>.</p>
-        <button <a href="https://discord.gg/CVPZBVmpZw" target="_blank" class="cta" style="text-decoration:none;display:inline-block;">ENTRAR NO DISCORD</a>
+        <a href="https://discord.gg/CVPZBVmpZw" target="_blank" rel="noopener" class="cta">ENTRAR NO DISCORD</a>
       </div>
 
       <div class="features">
@@ -101,6 +118,7 @@
       </div>
     </section>
 
+    <!-- SOBRE -->
     <section class="page" id="sobre">
       <h1>SOBRE O PLAY VERSE</h1>
       <div class="card-text">
@@ -117,14 +135,13 @@
       </div>
     </section>
 
+    <!-- REGRAS -->
     <section class="page" id="regras">
       <h1>REGRAS DO SERVIDOR</h1>
       <p class="sub">Ao entrar, você concorda em seguir todas as regras abaixo.</p>
 
       <div class="rule warn">
-        <div class="rule-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-        </div>
+        <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
         <div class="rule-body">
           <h3>Proibido Conteúdo +18</h3>
           <p>É terminantemente proibido qualquer conteúdo adulto, pornográfico, sexual ou explícito (+18). Isso inclui imagens, vídeos, links, textos ou comentários. Penalidade: <strong>banimento imediato</strong>.</p>
@@ -132,9 +149,7 @@
       </div>
 
       <div class="rule warn">
-        <div class="rule-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-        </div>
+        <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
         <div class="rule-body">
           <h3>Proibido Palavrões</h3>
           <p>Não é permitido uso de palavras de baixo calão, xingamentos ou ofensas direcionadas. Mantenha o respeito com todos os membros. Penalidade: <strong>advertência, mute ou banimento</strong>.</p>
@@ -142,9 +157,7 @@
       </div>
 
       <div class="rule">
-        <div class="rule-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        </div>
+        <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
         <div class="rule-body">
           <h3>Respeito acima de tudo</h3>
           <p>Trate todos com educação. Discussões devem ser resolvidas de forma civilizada ou com ajuda da equipe.</p>
@@ -152,9 +165,7 @@
       </div>
 
       <div class="rule">
-        <div class="rule-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        </div>
+        <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
         <div class="rule-body">
           <h3>Sem spam ou divulgação</h3>
           <p>Proibido flood, spam de mensagens ou divulgação de outros servidores sem autorização da equipe.</p>
@@ -162,12 +173,49 @@
       </div>
 
       <div class="rule">
-        <div class="rule-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        </div>
+        <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
         <div class="rule-body">
           <h3>Siga os Termos do Discord</h3>
           <p>Além das regras do servidor, você deve respeitar os Termos de Serviço e Diretrizes da Comunidade do Discord.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTRIBUIDORES -->
+    <section class="page" id="contribuidores">
+      <h1>CONTRIBUIDORES</h1>
+      <p class="sub">Pessoas que ajudaram a construir o Play Verse.</p>
+
+      <div class="soon-box">
+        <div class="soon-icon">
+          <svg viewBox="0 0 24 24" width="60" height="60">
+            <path fill="#8B5CF6" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
+        </div>
+        <h2>EM BREVE</h2>
+        <p>A lista de contribuidores será revelada em breve. Fique de olho!</p>
+        <div class="soon-loader">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ??? -->
+    <section class="page" id="misterio">
+      <h1>???</h1>
+      <p class="sub">Área desconhecida.</p>
+
+      <div class="soon-box mystery">
+        <div class="soon-icon">
+          <svg viewBox="0 0 24 24" width="60" height="60">
+            <path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+          </svg>
+        </div>
+        <h2>EM BREVE</h2>
+        <p>Algo misterioso está sendo preparado...</p>
+        <p class="mystery-hint">Área desconhecida — continue explorando.</p>
+        <div class="soon-loader">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </section>
@@ -176,4 +224,4 @@
 
 <script src="script.js"></script>
 </body>
-                                                          </html>
+</html>
