@@ -3,194 +3,662 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#050509">
 <title>Play Verse | Comunidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
-    <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+  <button class="icon-btn menu-btn" onclick="toggleMenu()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
   </button>
 
-  <div class="topbar-logo">
-    <svg viewBox="0 0 127.14 96.36" width="34" height="26"><path fill="#8B5CF6" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
-    <span>PLAY VERSE</span>
+  <div class="brand">
+    <svg viewBox="0 0 127.14 96.36" width="30" height="23"><path fill="#7C5CFF" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+    <span>Play Verse</span>
   </div>
 
-  <div class="clock" id="clock" title="Horário atual">
-    <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+  <div class="clock" id="clock">
     <span id="clock-time">--:--:--</span>
   </div>
 
-  <button class="theme-btn" onclick="toggleTheme()" aria-label="Tema">
-    <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg>
+  <button class="icon-btn theme-btn" onclick="toggleTheme()" aria-label="Tema">
+    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg>
   </button>
 </header>
 
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <span>MENU</span>
-    <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar">
-      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29 10.59 10.59 16.89 4.29z"/></svg>
+  <div class="sidebar-head">
+    <span>Navegação</span>
+    <button class="icon-btn" onclick="toggleMenu()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29 10.59 10.59 16.89 4.29z"/></svg>
     </button>
   </div>
 
   <ul class="menu">
     <li data-page="home" class="active" onclick="showPage('home', this)">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       <span>Home</span>
     </li>
     <li data-page="sobre" onclick="showPage('sobre', this)">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
       <span>Sobre</span>
     </li>
     <li data-page="regras" onclick="showPage('regras', this)">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
       <span>Regras</span>
     </li>
     <li data-page="contribuidores" onclick="showPage('contribuidores', this)">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
       <span>Contribuidores</span>
     </li>
     <li data-page="misterio" onclick="showPage('misterio', this)">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
       <span>???</span>
     </li>
   </ul>
 
-  <div class="sidebar-footer">
-    <div class="status"><span class="dot"></span><span>Servidor Online</span></div>
+  <div class="sidebar-foot">
+    <div class="status"><span class="dot"></span>Servidor online</div>
   </div>
 </nav>
 
 <main class="content">
 
+  <!-- HOME -->
   <section class="page active" id="home">
     <div class="hero">
-      <div class="hero-logo">
-        <svg viewBox="0 0 127.14 96.36" width="110" height="84"><path fill="#8B5CF6" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+      <div class="hero-badge">Comunidade de jogos</div>
+      <h1>Play <span class="grad">Verse</span></h1>
+      <p>Um espaço feito para <strong>jogar</strong>, <strong>competir</strong> e <strong>se divertir</strong> com amigos.</p>
+      <div class="hero-actions">
+        <a href="https://discord.gg/CVPZBVmpZw" target="_blank" rel="noopener" class="btn-primary">Entrar no Discord</a>
+        <button class="btn-ghost" onclick="showPage('sobre')">Saber mais</button>
       </div>
-      <h1>PLAY VERSE</h1>
-      <p>Uma comunidade focada em <strong>jogos</strong>, <strong>eventos</strong> e <strong>diversão</strong>.</p>
-      <a href="https://discord.gg/CVPZBVmpZw" target="_blank" rel="noopener" class="cta">ENTRAR NO DISCORD</a>
     </div>
 
     <div class="features">
       <div class="feature">
-        <svg viewBox="0 0 24 24" width="30" height="30"><path fill="#8B5CF6" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>
+        </div>
         <h3>Jogos</h3>
-        <p>Encontre pessoas para jogar seus títulos favoritos.</p>
+        <p>Encontre pessoas para jogar seus títulos favoritos a qualquer hora.</p>
       </div>
       <div class="feature">
-        <svg viewBox="0 0 24 24" width="30" height="30"><path fill="#8B5CF6" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+        </div>
         <h3>Eventos</h3>
-        <p>Participe de campeonatos, sorteios e noites temáticas.</p>
+        <p>Campeonatos, sorteios e noites temáticas toda semana.</p>
       </div>
       <div class="feature">
-        <svg viewBox="0 0 24 24" width="30" height="30"><path fill="#8B5CF6" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
         <h3>Comunidade</h3>
-        <p>Um ambiente amigável para fazer novas amizades.</p>
+        <p>Ambiente amigável e moderado para fazer novas amizades.</p>
       </div>
     </div>
   </section>
 
+  <!-- SOBRE -->
   <section class="page" id="sobre">
-    <h1>SOBRE O PLAY VERSE</h1>
-    <div class="card-text">
-      <p>O <strong>Play Verse</strong> é uma <strong>comunidade focada em jogos</strong>, onde a diversão e o respeito vêm em primeiro lugar.</p>
+    <h2 class="page-title">Sobre o Play Verse</h2>
+    <div class="card">
+      <p>O <strong>Play Verse</strong> é uma comunidade focada em jogos, onde diversão e respeito vêm em primeiro lugar.</p>
       <p>Aqui você encontra:</p>
       <ul class="list">
-        <li><span class="bullet"></span> Salas de voz para jogar com amigos</li>
-        <li><span class="bullet"></span> Eventos semanais e campeonatos</li>
-        <li><span class="bullet"></span> Canais organizados por jogo</li>
-        <li><span class="bullet"></span> Bots de música, economia e diversão</li>
-        <li><span class="bullet"></span> Equipe ativa e atenciosa</li>
+        <li>Salas de voz para jogar com amigos</li>
+        <li>Eventos semanais e campeonatos</li>
+        <li>Canais organizados por jogo</li>
+        <li>Bots de música, economia e diversão</li>
+        <li>Equipe ativa e atenciosa</li>
       </ul>
-      <p>Seja você casual ou competitivo, aqui tem um lugar para você. <strong>Vem fazer parte!</strong></p>
+      <p>Seja casual ou competitivo — tem lugar pra você. <strong>Vem fazer parte!</strong></p>
     </div>
   </section>
 
+  <!-- REGRAS -->
   <section class="page" id="regras">
-    <h1>REGRAS DO SERVIDOR</h1>
+    <h2 class="page-title">Regras do Servidor</h2>
     <p class="sub">Ao entrar, você concorda em seguir todas as regras abaixo.</p>
 
     <div class="rule warn">
-      <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
-      <div class="rule-body">
+      <div class="rule-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+      </div>
+      <div>
         <h3>Proibido Conteúdo +18</h3>
-        <p>É terminantemente proibido qualquer conteúdo adulto, pornográfico, sexual ou explícito (+18). Isso inclui imagens, vídeos, links, textos ou comentários. Penalidade: <strong>banimento imediato</strong>.</p>
+        <p>Qualquer conteúdo adulto, sexual ou explícito é terminantemente proibido. Penalidade: <strong>banimento imediato</strong>.</p>
       </div>
     </div>
 
     <div class="rule warn">
-      <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#F0B232" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
-      <div class="rule-body">
+      <div class="rule-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+      </div>
+      <div>
         <h3>Proibido Palavrões</h3>
-        <p>Não é permitido uso de palavras de baixo calão, xingamentos ou ofensas direcionadas. Mantenha o respeito com todos os membros. Penalidade: <strong>advertência, mute ou banimento</strong>.</p>
+        <p>Sem palavras de baixo calão, xingamentos ou ofensas. Respeite todos. Penalidade: <strong>advertência, mute ou banimento</strong>.</p>
       </div>
     </div>
 
     <div class="rule">
-      <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="rule-body">
+      <div class="rule-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div>
         <h3>Respeito acima de tudo</h3>
-        <p>Trate todos com educação. Discussões devem ser resolvidas de forma civilizada ou com ajuda da equipe.</p>
+        <p>Trate todos com educação. Discussões se resolvem na conversa ou com ajuda da equipe.</p>
       </div>
     </div>
 
     <div class="rule">
-      <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="rule-body">
+      <div class="rule-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div>
         <h3>Sem spam ou divulgação</h3>
-        <p>Proibido flood, spam de mensagens ou divulgação de outros servidores sem autorização da equipe.</p>
+        <p>Proibido flood, spam ou divulgação de outros servidores sem autorização da equipe.</p>
       </div>
     </div>
 
     <div class="rule">
-      <div class="rule-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="rule-body">
+      <div class="rule-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div>
         <h3>Siga os Termos do Discord</h3>
-        <p>Além das regras do servidor, você deve respeitar os Termos de Serviço e Diretrizes da Comunidade do Discord.</p>
+        <p>Além das regras do servidor, respeite os Termos de Serviço e Diretrizes da Comunidade.</p>
       </div>
     </div>
   </section>
 
+  <!-- CONTRIBUIDORES -->
   <section class="page" id="contribuidores">
-    <h1>CONTRIBUIDORES</h1>
+    <h2 class="page-title">Contribuidores</h2>
     <p class="sub">Pessoas que ajudaram a construir o Play Verse.</p>
 
-    <div class="soon-box">
+    <div class="soon">
       <div class="soon-icon">
-        <svg viewBox="0 0 24 24" width="60" height="60"><path fill="#8B5CF6" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
       </div>
-      <h2>EM BREVE</h2>
+      <h3>Em breve</h3>
       <p>A lista de contribuidores será revelada em breve. Fique de olho!</p>
-      <div class="soon-loader"><span></span><span></span><span></span></div>
+      <div class="loader"><span></span><span></span><span></span></div>
     </div>
   </section>
 
+  <!-- ??? COM CELULAR -->
   <section class="page" id="misterio">
-    <h1>???</h1>
-    <p class="sub">Área desconhecida.</p>
+    <h2 class="page-title">???</h2>
+    <p class="sub">Um dispositivo estranho apareceu por aqui...</p>
 
-    <div class="soon-box mystery">
-      <div class="soon-icon">
-        <svg viewBox="0 0 24 24" width="60" height="60"><path fill="#8B5CF6" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+    <div class="phone-stage">
+      <div class="phone" id="phone">
+
+        <!-- TELA BLOQUEADA -->
+        <div class="screen locked" id="screen-locked">
+          <div class="lock-time" id="phone-time">--:--</div>
+          <div class="lock-date" id="phone-date">---</div>
+          <div class="lock-hint">Desenhe o padrão</div>
+
+          <div class="pattern-wrap">
+            <svg class="pattern-lines" id="pattern-lines"></svg>
+            <div class="pattern-grid" id="pattern-grid">
+              <div class="dot" data-i="0"></div>
+              <div class="dot" data-i="1"></div>
+              <div class="dot" data-i="2"></div>
+              <div class="dot" data-i="3"></div>
+              <div class="dot" data-i="4"></div>
+              <div class="dot" data-i="5"></div>
+              <div class="dot" data-i="6"></div>
+              <div class="dot" data-i="7"></div>
+              <div class="dot" data-i="8"></div>
+            </div>
+          </div>
+
+          <div class="lock-error" id="lock-error"></div>
+        </div>
+
+        <!-- HOME DO CELULAR -->
+        <div class="screen home hidden" id="screen-home">
+          <div class="phone-status">
+            <span id="phone-clock-mini">--:--</span>
+            <span class="battery"></span>
+          </div>
+          <div class="apps">
+            <button class="app" onclick="openApp('config')">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+              <span>Config</span>
+            </button>
+
+            <button class="app" onclick="openApp('codes')">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+              <span>Códigos</span>
+            </button>
+
+            <button class="app" onclick="openApp('secret')">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+              <span>???</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- APP: CONFIGURAÇÕES -->
+        <div class="screen app hidden" id="app-config">
+          <div class="app-bar">
+            <button class="back" onclick="closeApp()">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </button>
+            <span>Configurações</span>
+          </div>
+          <div class="app-body">
+            <div class="section-label">Dev</div>
+            <button class="item" onclick="applyDevTheme('binary')">Tema Hacker Binário</button>
+            <button class="item" onclick="applyDevTheme('blue')">Tema Azul</button>
+            <button class="item" onclick="applyDevTheme('matrix')">Tema Matrix</button>
+            <button class="item reset" onclick="applyDevTheme('default')">Resetar Tema</button>
+          </div>
+        </div>
+
+        <!-- APP: CÓDIGOS -->
+        <div class="screen app hidden" id="app-codes">
+          <div class="app-bar">
+            <button class="back" onclick="closeApp()">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </button>
+            <span>Códigos</span>
+          </div>
+          <div class="app-body">
+            <p class="hint">Digite um código secreto:</p>
+            <input type="text" id="code-input" class="code-input" placeholder="Digite aqui..." autocomplete="off" spellcheck="false">
+            <button class="run-code" onclick="runCode()">Executar</button>
+            <div class="code-output" id="code-output"></div>
+          </div>
+        </div>
+
+        <!-- APP: ??? -->
+        <div class="screen app hidden" id="app-secret">
+          <div class="app-bar">
+            <button class="back" onclick="closeApp()">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </button>
+            <span>???</span>
+          </div>
+          <div class="app-body">
+            <div id="secret-locked" class="locked-area">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>
+              <p>Bloqueado. Use um código válido na aba "Códigos".</p>
+            </div>
+            <div id="secret-content" class="secret-content hidden">
+              <div class="section-label">Próximas atualizações</div>
+              <div class="secret-item">Animações mais suaves</div>
+              <div class="secret-item">Otimização para aparelhos com menos de 8GB RAM</div>
+              <div class="secret-item">Nova aba secreta</div>
+              <p class="warning">Esta aba desaparece ao recarregar a página.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <h2>EM BREVE</h2>
-      <p>Algo misterioso está sendo preparado...</p>
-      <p class="mystery-hint">Área desconhecida — continue explorando.</p>
-      <div class="soon-loader"><span></span><span></span><span></span></div>
     </div>
   </section>
 
 </main>
 
-<script src="script.js"></script>
+<footer class="footer">
+  <span>Play Verse © 2025</span>
+  <span class="footer-sep">•</span>
+  <span>Feito com dedicação</span>
+</footer>
+
+<!-- POPUP EASTER EGG -->
+<div class="modal" id="modal-alex">
+  <div class="modal-box">
+    <h3>Ei... 👀</h3>
+    <p>Por que você usou o código do sub-dono?</p>
+    <p class="modal-hint">Só easter egg, relaxa kkkk</p>
+    <button onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* ============ DEVICE ============ */
+const Device = {
+  isMobile: () => (/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)) || ('ontouchstart' in window && window.innerWidth < 900),
+  isTablet: () => (/iPad|Android(?!.*Mobile)|Tablet/i.test(navigator.userAgent)) || (window.innerWidth >= 768 && window.innerWidth <= 1024),
+  isDesktop() { return !Device.isMobile() && !Device.isTablet(); },
+  type() { return Device.isMobile() ? 'mobile' : Device.isTablet() ? 'tablet' : 'desktop'; },
+  orientation() { return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'; }
+};
+
+function applyDeviceMode() {
+  const b = document.body;
+  const t = Device.type();
+  b.classList.remove('is-mobile','is-tablet','is-desktop','portrait','landscape');
+  b.classList.add('is-' + t, Device.orientation());
+  if (t === 'mobile' && menuOpen) closeMenu();
+}
+
+/* ============ MENU ============ */
+let menuOpen = false;
+let sidebar, overlay;
+
+function toggleMenu() {
+  if (!sidebar) return;
+  menuOpen = !menuOpen;
+  sidebar.classList.toggle('open', menuOpen);
+  overlay.classList.toggle('open', menuOpen);
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
+}
+
+function closeMenu() {
+  if (!menuOpen) return;
+  menuOpen = false;
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ============ NAVEGAÇÃO ============ */
+const PAGES = ['home','sobre','regras','contribuidores','misterio'];
+
+function showPage(pageId, el) {
+  if (!PAGES.includes(pageId)) return;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(pageId);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active'));
+  if (el) el.classList.add('active');
+  else {
+    const li = document.querySelector('.menu li[data-page="' + pageId + '"]');
+    if (li) li.classList.add('active');
+  }
+  try { localStorage.setItem('pv_page', pageId); } catch(e) {}
+  if (Device.type() !== 'desktop') closeMenu();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restoreLastPage() {
+  let s = null;
+  try { s = localStorage.getItem('pv_page'); } catch(e) {}
+  if (s && PAGES.includes(s)) showPage(s);
+}
+
+/* ============ TEMA ============ */
+function applyTheme(theme) {
+  document.body.classList.toggle('light', theme === 'light');
+  try { localStorage.setItem('pv_theme', theme); } catch(e) {}
+  const m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.setAttribute('content', theme === 'light' ? '#f7f7fa' : '#050509');
+}
+
+function toggleTheme() {
+  applyTheme(document.body.classList.contains('light') ? 'dark' : 'light');
+}
+
+function initTheme() {
+  let s = null;
+  try { s = localStorage.getItem('pv_theme'); } catch(e) {}
+  if (s) applyTheme(s);
+  else applyTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+}
+
+/* ============ TEMAS DEV ============ */
+const DEV_THEMES = ['theme-binary','theme-blue','theme-matrix'];
+
+function applyDevTheme(name) {
+  document.body.classList.remove(...DEV_THEMES);
+  if (name === 'binary') document.body.classList.add('theme-binary');
+  else if (name === 'blue') document.body.classList.add('theme-blue');
+  else if (name === 'matrix') document.body.classList.add('theme-matrix');
+  try { localStorage.setItem('pv_devtheme', name); } catch(e) {}
+}
+
+function initDevTheme() {
+  let s = null;
+  try { s = localStorage.getItem('pv_devtheme'); } catch(e) {}
+  if (s && s !== 'default') applyDevTheme(s);
+}
+
+/* ============ RELÓGIO ============ */
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateClocks() {
+  const now = new Date();
+  const hhmmss = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  const hhmm = pad(now.getHours()) + ':' + pad(now.getMinutes());
+
+  const clockEl = document.getElementById('clock-time');
+  if (clockEl) clockEl.textContent = hhmmss;
+
+  const phoneTime = document.getElementById('phone-time');
+  if (phoneTime) phoneTime.textContent = hhmm;
+
+  const phoneMini = document.getElementById('phone-clock-mini');
+  if (phoneMini) phoneMini.textContent = hhmm;
+
+  const phoneDate = document.getElementById('phone-date');
+  if (phoneDate) {
+    const dias = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+    const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+    phoneDate.textContent = dias[now.getDay()] + ', ' + now.getDate() + ' ' + meses[now.getMonth()];
+  }
+}
+
+/* ============ CELULAR: PADRÃO ============ */
+let patternPath = [];
+let isDrawing = false;
+let patternLines, patternGrid;
+
+function initPattern() {
+  patternLines = document.getElementById('pattern-lines');
+  patternGrid = document.getElementById('pattern-grid');
+  if (!patternGrid) return;
+
+  patternGrid.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('mousedown', startDraw);
+    dot.addEventListener('mouseenter', continueDraw);
+    dot.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw.call(dot); }, { passive: false });
+    dot.addEventListener('touchmove', handleTouchMove, { passive: false });
+  });
+
+  document.addEventListener('mouseup', endDraw);
+  document.addEventListener('touchend', endDraw);
+}
+
+function startDraw() {
+  isDrawing = true;
+  patternPath = [];
+  clearPattern();
+  addPoint(this);
+}
+
+function continueDraw() {
+  if (!isDrawing) return;
+  addPoint(this);
+}
+
+function handleTouchMove(e) {
+  if (!isDrawing) return;
+  e.preventDefault();
+  const t = e.touches[0];
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  if (el && el.classList.contains('dot')) addPoint(el);
+}
+
+function addPoint(dot) {
+  const i = parseInt(dot.dataset.i);
+  if (patternPath.includes(i)) return;
+  patternPath.push(i);
+  dot.classList.add('active');
+  drawLines();
+}
+
+function drawLines() {
+  if (!patternLines || !patternGrid) return;
+  patternLines.innerHTML = '';
+  const gridRect = patternGrid.getBoundingClientRect();
+  const dots = patternGrid.querySelectorAll('.dot');
+
+  for (let k = 0; k < patternPath.length - 1; k++) {
+    const a = dots[patternPath[k]].getBoundingClientRect();
+    const b = dots[patternPath[k+1]].getBoundingClientRect();
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', a.left + a.width/2 - gridRect.left);
+    line.setAttribute('y1', a.top + a.height/2 - gridRect.top);
+    line.setAttribute('x2', b.left + b.width/2 - gridRect.left);
+    line.setAttribute('y2', b.top + b.height/2 - gridRect.top);
+    line.setAttribute('stroke', 'currentColor');
+    line.setAttribute('stroke-width', '3');
+    line.setAttribute('stroke-linecap', 'round');
+    patternLines.appendChild(line);
+  }
+}
+
+function clearPattern() {
+  if (patternGrid) patternGrid.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+  if (patternLines) patternLines.innerHTML = '';
+}
+
+function endDraw() {
+  if (!isDrawing) return;
+  isDrawing = false;
+
+  // Padrão "L": 0 → 3 → 6 → 7 → 8
+  const correct = [0, 3, 6, 7, 8];
+  const ok = patternPath.length === correct.length && patternPath.every((v, i) => v === correct[i]);
+
+  if (ok) {
+    unlockPhone();
+  } else if (patternPath.length > 0) {
+    const err = document.getElementById('lock-error');
+    if (err) {
+      err.textContent = 'Padrão incorreto.';
+      setTimeout(() => { err.textContent = ''; }, 1500);
+    }
+    setTimeout(clearPattern, 400);
+  } else {
+    clearPattern();
+  }
+}
+
+function unlockPhone() {
+  clearPattern();
+  document.getElementById('screen-locked').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+}
+
+/* ============ CELULAR: APPS ============ */
+function openApp(name) {
+  document.getElementById('screen-home').classList.add('hidden');
+  document.getElementById('app-' + name).classList.remove('hidden');
+}
+
+function closeApp() {
+  ['config','codes','secret'].forEach(n => document.getElementById('app-' + n).classList.add('hidden'));
+  document.getElementById('screen-home').classList.remove('hidden');
+}
+
+/* ============ CÓDIGOS / EASTER EGGS ============ */
+const CODES = {
+  'alex': () => { showModal(); return { ok: true, msg: 'Código ativado.' }; },
+  'alex002': () => {
+    document.getElementById('secret-locked').classList.add('hidden');
+    document.getElementById('secret-content').classList.remove('hidden');
+    return { ok: true, msg: 'Aba secreta liberada!' };
+  }
+};
+
+function runCode() {
+  const input = document.getElementById('code-input');
+  const output = document.getElementById('code-output');
+  if (!input || !output) return;
+
+  const code = input.value.trim().toLowerCase();
+  output.className = 'code-output';
+
+  if (!code) {
+    output.classList.add('err');
+    output.textContent = 'Digite algum código.';
+    return;
+  }
+
+  if (CODES[code]) {
+    const res = CODES[code]();
+    output.classList.add(res.ok ? 'ok' : 'err');
+    output.textContent = res.msg;
+    input.value = '';
+  } else {
+    output.classList.add('err');
+    output.textContent = 'Código inválido.';
+  }
+}
+
+/* ============ MODAL ============ */
+function showModal() {
+  document.getElementById('modal-alex').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal-alex').classList.remove('show');
+}
+
+/* ============ TECLADO ============ */
+function initKeyboard() {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (menuOpen) closeMenu();
+      closeModal();
+    }
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const sc = { '1':'home','2':'sobre','3':'regras','4':'contribuidores','5':'misterio' };
+    if (sc[e.key]) showPage(sc[e.key]);
+  });
+}
+
+/* ============ RESIZE ============ */
+let resizeTimer;
+function handleResize() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    applyDeviceMode();
+    if (Device.type() === 'desktop' && menuOpen) closeMenu();
+  }, 180);
+}
+
+/* ============ INIT ============ */
+function init() {
+  sidebar = document.getElementById('sidebar');
+  overlay = document.getElementById('overlay');
+  applyDeviceMode();
+  initTheme();
+  initDevTheme();
+  restoreLastPage();
+  initPattern();
+  initKeyboard();
+  updateClocks();
+  setInterval(updateClocks, 1000);
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('orientationchange', () => setTimeout(applyDeviceMode, 250));
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+</script>
+
 </body>
-</html>
+          </html>
