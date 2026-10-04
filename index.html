@@ -445,7 +445,6 @@ body.light .theme-btn .icon-sun { display: block; }
 }
 .screen.hidden { display: none; }
 
-/* TELA BLOQUEADA */
 .screen.locked {
   background: linear-gradient(180deg, #0a0a12 0%, #1a0d2e 60%, #0a0a12 100%);
   align-items: center;
@@ -528,7 +527,6 @@ body.light .theme-btn .icon-sun { display: block; }
   letter-spacing: 1px;
 }
 
-/* HOME DO CELULAR */
 .screen.home {
   background: linear-gradient(180deg, #0a0a12 0%, #150a26 100%);
   padding: 0;
@@ -601,7 +599,6 @@ body.light .theme-btn .icon-sun { display: block; }
   transform: scale(1.05);
 }
 
-/* APP */
 .screen.app { background: #0a0a12; }
 .app-bar {
   display: flex;
@@ -661,6 +658,28 @@ body.light .theme-btn .icon-sun { display: block; }
   border-color: var(--brand);
 }
 .item.reset { color: var(--red); border-color: rgba(255,77,94,0.3); }
+
+.secret-item-btn {
+  background: linear-gradient(135deg, rgba(181, 123, 255, 0.15), rgba(255, 95, 162, 0.15)) !important;
+  border-color: rgba(212, 165, 255, 0.4) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.secret-item-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 .hint {
   font-size: 12px;
   color: rgba(255,255,255,0.5);
@@ -822,7 +841,7 @@ body.light .theme-btn .icon-sun { display: block; }
 
 .hidden { display: none !important; }
 
-/* TEMAS DEV */
+/* TEMAS DEV PADRÃO */
 body.theme-binary {
   --brand: #00ff41;
   --brand-2: #00cc33;
@@ -853,6 +872,205 @@ body.theme-matrix {
   font-family: 'JetBrains Mono', monospace;
   background: #000;
   background-image: none;
+}
+
+/* ============================================
+   TEMAS SECRETOS (TopSecret404)
+   ============================================ */
+
+/* 🌸 ROSA BRILHANTE */
+body.theme-rose {
+  --brand: #ff5fa2;
+  --brand-2: #ff8cc6;
+  --brand-glow: rgba(255, 95, 162, 0.5);
+  --border-2: rgba(255, 95, 162, 0.3);
+  background: #1a0a14;
+  background-image:
+    radial-gradient(ellipse 800px 600px at 15% -5%, rgba(255, 95, 162, 0.15), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 85% 105%, rgba(255, 140, 198, 0.12), transparent 60%);
+  animation: roseGlow 6s ease-in-out infinite;
+}
+
+@keyframes roseGlow {
+  0%, 100% { --brand-glow: rgba(255, 95, 162, 0.5); }
+  50% { --brand-glow: rgba(255, 140, 198, 0.9); }
+}
+
+body.theme-rose .brand span {
+  background: linear-gradient(135deg, #ff5fa2, #ff8cc6, #ff5fa2);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: roseText 3s ease-in-out infinite;
+}
+
+@keyframes roseText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+body.theme-rose .btn-primary,
+body.theme-rose .menu li.active {
+  box-shadow: 0 10px 40px rgba(255, 95, 162, 0.6), 0 0 60px rgba(255, 95, 162, 0.3);
+}
+
+body.theme-rose .feature-icon,
+body.theme-rose .rule-icon,
+body.theme-rose .soon-icon {
+  background: rgba(255, 95, 162, 0.12);
+  border-color: rgba(255, 95, 162, 0.35);
+  color: #ff8cc6;
+}
+
+/* 👑 YELLOW GOLDEN */
+body.theme-golden {
+  --brand: #d4a017;
+  --brand-2: #f5c542;
+  --brand-glow: rgba(212, 160, 23, 0.5);
+  --border-2: rgba(212, 160, 23, 0.35);
+  background: #0f0a02;
+  background-image:
+    radial-gradient(ellipse 800px 600px at 15% -5%, rgba(212, 160, 23, 0.15), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 85% 105%, rgba(245, 197, 66, 0.1), transparent 60%);
+}
+
+body.theme-golden .brand span {
+  background: linear-gradient(135deg, #d4a017, #f5c542, #d4a017);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldenShine 4s ease-in-out infinite;
+}
+
+@keyframes goldenShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+body.theme-golden .feature-icon,
+body.theme-golden .rule-icon,
+body.theme-golden .soon-icon,
+body.theme-golden .app svg {
+  filter: drop-shadow(0 0 8px rgba(212, 160, 23, 0.6));
+}
+
+body.theme-golden .feature-icon,
+body.theme-golden .rule-icon {
+  background: rgba(212, 160, 23, 0.12);
+  border-color: rgba(212, 160, 23, 0.35);
+  color: #f5c542;
+}
+
+body.theme-golden .menu li.active,
+body.theme-golden .btn-primary {
+  background: linear-gradient(135deg, #d4a017, #f5c542);
+  box-shadow: 0 10px 40px rgba(212, 160, 23, 0.5), 0 0 60px rgba(245, 197, 66, 0.3);
+}
+
+body.theme-golden .status .dot {
+  background: #f5c542;
+  box-shadow: 0 0 12px #f5c542;
+}
+
+/* 💜 PURPLE S1d7 — especial */
+body.theme-purple-s1d7 {
+  --brand: #b57bff;
+  --brand-2: #d4a5ff;
+  --brand-glow: rgba(181, 123, 255, 0.6);
+  --border-2: rgba(181, 123, 255, 0.4);
+  background: #0d0618;
+  background-image:
+    radial-gradient(ellipse 800px 600px at 15% -5%, rgba(181, 123, 255, 0.2), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 85% 105%, rgba(212, 165, 255, 0.15), transparent 60%);
+  animation: purplePulse 5s ease-in-out infinite;
+}
+
+@keyframes purplePulse {
+  0%, 100% { --brand-glow: rgba(181, 123, 255, 0.6); }
+  50% { --brand-glow: rgba(212, 165, 255, 0.9); }
+}
+
+body.theme-purple-s1d7 .brand span {
+  background: linear-gradient(135deg, #b57bff, #d4a5ff, #ff9ee0, #b57bff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: purpleText 5s ease-in-out infinite;
+}
+
+@keyframes purpleText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+body.theme-purple-s1d7 .btn-primary,
+body.theme-purple-s1d7 .menu li.active {
+  background: linear-gradient(135deg, #b57bff, #d4a5ff);
+  box-shadow: 0 10px 40px rgba(181, 123, 255, 0.6), 0 0 80px rgba(181, 123, 255, 0.4);
+}
+
+body.theme-purple-s1d7 .feature {
+  border-color: rgba(181, 123, 255, 0.3);
+}
+
+body.theme-purple-s1d7::before {
+  content: '💜 S1d7 Mode ON 💜';
+  position: fixed;
+  top: 70px; right: 20px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #b57bff, #d4a5ff);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-radius: 999px;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(181, 123, 255, 0.5);
+  animation: tagFloat 3s ease-in-out infinite;
+}
+
+@keyframes tagFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* CHUVA DE CORAÇÕES */
+.hearts-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  overflow: hidden;
+}
+
+.hearts-layer.hidden { display: none; }
+
+.heart-float {
+  position: absolute;
+  bottom: -40px;
+  color: #d4a5ff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(181, 123, 255, 0.8);
+  animation: heartRise linear forwards;
+  white-space: nowrap;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes heartRise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) rotate(15deg);
+    opacity: 0;
+  }
 }
 
 /* RESPONSIVO */
@@ -1137,6 +1355,12 @@ body.is-mobile * { -webkit-tap-highlight-color: transparent; }
             <button class="item" onclick="applyDevTheme('binary')">Tema Hacker Binário</button>
             <button class="item" onclick="applyDevTheme('blue')">Tema Azul</button>
             <button class="item" onclick="applyDevTheme('matrix')">Tema Matrix</button>
+
+            <div class="section-label">Secretos</div>
+            <button class="item secret-item-btn" onclick="applyDevTheme('rose')">🌸 Rosa Brilhante</button>
+            <button class="item secret-item-btn" onclick="applyDevTheme('golden')">👑 Yellow Golden</button>
+            <button class="item secret-item-btn" onclick="applyDevTheme('purpleS1d7')">💜 Purple S1d7</button>
+
             <button class="item reset" onclick="applyDevTheme('default')">Resetar Tema</button>
           </div>
         </div>
@@ -1198,6 +1422,8 @@ body.is-mobile * { -webkit-tap-highlight-color: transparent; }
     <button onclick="closeModal()">Fechar</button>
   </div>
 </div>
+
+<div class="hearts-layer hidden" id="hearts-layer"></div>
 
 <script>
 'use strict';
@@ -1276,14 +1502,27 @@ function initTheme() {
   else applyTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 }
 
-const DEV_THEMES = ['theme-binary','theme-blue','theme-matrix'];
+const DEV_THEMES = [
+  'theme-binary','theme-blue','theme-matrix',
+  'theme-rose','theme-golden','theme-purple-s1d7'
+];
+
 function applyDevTheme(name) {
   document.body.classList.remove(...DEV_THEMES);
   if (name === 'binary') document.body.classList.add('theme-binary');
   else if (name === 'blue') document.body.classList.add('theme-blue');
   else if (name === 'matrix') document.body.classList.add('theme-matrix');
+  else if (name === 'rose') document.body.classList.add('theme-rose');
+  else if (name === 'golden') document.body.classList.add('theme-golden');
+  else if (name === 'purpleS1d7') {
+    document.body.classList.add('theme-purple-s1d7');
+    startHeartsRain();
+  } else {
+    stopHeartsRain();
+  }
   try { localStorage.setItem('pv_devtheme', name); } catch(e) {}
 }
+
 function initDevTheme() {
   let s = null;
   try { s = localStorage.getItem('pv_devtheme'); } catch(e) {}
@@ -1314,7 +1553,56 @@ function updateClocks() {
   }
 }
 
-/* ============ CELULAR ============ */
+/* CHUVA DE CORAÇÕES */
+let heartsInterval = null;
+
+function startHeartsRain() {
+  const layer = document.getElementById('hearts-layer');
+  if (!layer || heartsInterval) return;
+
+  const msgs = [
+    'Você é incrível! 💜',
+    'Você faz a diferença ✨',
+    'Continue sendo você 💫',
+    'Você é único(a) 🌟',
+    'O mundo precisa de você 💖',
+    'Você é mais forte do que pensa 💪',
+    'Sua energia é contagiante ⚡',
+    'Você merece o melhor 🏆',
+    'Nunca duvide de você 💜',
+    'Você é luz na vida dos outros ☀️'
+  ];
+
+  const icons = ['💜', '💖', '💗', '💓', '✨', '🌟'];
+
+  heartsInterval = setInterval(() => {
+    const el = document.createElement('div');
+    el.className = 'heart-float';
+    el.textContent = Math.random() > 0.5
+      ? icons[Math.floor(Math.random() * icons.length)]
+      : msgs[Math.floor(Math.random() * msgs.length)];
+    el.style.left = Math.random() * 100 + '%';
+    el.style.animationDuration = (6 + Math.random() * 4) + 's';
+    el.style.fontSize = (14 + Math.random() * 14) + 'px';
+    layer.appendChild(el);
+    setTimeout(() => el.remove(), 10000);
+  }, 800);
+
+  layer.classList.remove('hidden');
+}
+
+function stopHeartsRain() {
+  const layer = document.getElementById('hearts-layer');
+  if (!layer) return;
+  if (heartsInterval) {
+    clearInterval(heartsInterval);
+    heartsInterval = null;
+  }
+  layer.innerHTML = '';
+  layer.classList.add('hidden');
+}
+
+/* CELULAR */
 let patternPath = [];
 let isDrawing = false;
 let patternLines, patternGrid;
@@ -1418,12 +1706,13 @@ function closeApp() {
   document.getElementById('screen-home').classList.remove('hidden');
 }
 
+/* CÓDIGOS */
 const CODES = {
   'alex': () => { showModal(); return { ok: true, msg: 'Código ativado.' }; },
-  'alex002': () => {
+  'topsecret404': () => {
     document.getElementById('secret-locked').classList.add('hidden');
     document.getElementById('secret-content').classList.remove('hidden');
-    return { ok: true, msg: 'Aba secreta liberada!' };
+    return { ok: true, msg: '🔓 Acesso liberado. Bem-vindo à TopSecret404.' };
   }
 };
 
